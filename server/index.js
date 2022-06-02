@@ -12,7 +12,7 @@ app.use(express.json());
 app.use("/users", userRouter);
 app.use("/", blogRouter);
 
-app.listen(5000, () => {
+app.listen(proces.env.port || 5000, () => {
   // connect to database
   mongoose
     .connect(process.env.URLMONGO)

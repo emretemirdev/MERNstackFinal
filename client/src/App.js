@@ -3,11 +3,14 @@ import Header from './Components/Header';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import HomeScreen from "./Screens/HomeScreen";
+import BlogScreen from "./Screens/BlogScreen";
 import SigninScreen from "./Screens/SigninScreen";
+import Error from "./Screens/404";
 import SignupScreen from "./Screens/SignupScreen";
-import Blog from "./Components/Blog";
-import Admin from "./Components/Admin";
 import {useState,} from 'react'
+
+
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -26,11 +29,11 @@ function App() {
              <Route path='/signup' 
              element={<SignupScreen/>} exact>
                </Route>
-             <Route path='/admin' 
-             element={<Admin user={user}/>} exact>
-               </Route>
                <Route path='/blog' 
-             element={<Blog/>} exact>
+             element={<BlogScreen/>} exact>
+               </Route>
+               <Route path='/404' 
+             element={<Error/>} exact>
                </Route>
           </Routes>
       </Container>

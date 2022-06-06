@@ -19,14 +19,14 @@ if(localStorage.getItem('user') && !user){
         style={{ maxHeight: '100px' }}
         navbarScroll
       >
-        <Nav.Link path="/admin"> 
+        <Nav.Link href="/"> 
           Ana Sayfa</Nav.Link>
         <NavDropdown className='text-white' title="Hakkımızda" id="navbarScrollingDropdown">
-          <NavDropdown.Item>Neler Yapıyoruz</NavDropdown.Item>
-          <NavDropdown.Item>Ekibimiz</NavDropdown.Item>
+          <NavDropdown.Item href="/404">Neler Yapıyoruz</NavDropdown.Item>
+          <NavDropdown.Item href="/404">Ekibimiz</NavDropdown.Item>
         </NavDropdown>
-        <Nav.Link path="/blog" >İletişim</Nav.Link>
-        <Nav.Link path="/blog" >Blog</Nav.Link>
+        <Nav.Link href="/404" >İletişim</Nav.Link>
+        <Nav.Link href="/blog">Blog</Nav.Link>
       </Nav>
     </Navbar.Collapse>
     {

@@ -5,10 +5,13 @@ import Note from '../models/blogModel.js';
 router.route("/create").post((req, res) => {
         const title = req.body.title;
         const content = req.body.content;
-        const Blog = new Note({
+        const newNote = new Note({
                 title,
                 content
-        })
-       Blog.save();
-})
+        });
+       newNote.save();
+});
+
+
+
 export default router;

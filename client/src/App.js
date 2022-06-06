@@ -7,14 +7,14 @@ import SigninScreen from "./Screens/SigninScreen";
 import SignupScreen from "./Screens/SignupScreen";
 import Blog from "./Components/Blog";
 import Admin from "./Components/Admin";
-import {useState} from 'react'
+import {useState,} from 'react'
 
 function App() {
   const [user, setUser] = useState(null);
   return (
     <Router> 
+      
       <Header user={user} setUser={setUser} />
-      <main className='py-3'>
       <Container>
           <Routes>
              <Route path='/' 
@@ -30,16 +30,11 @@ function App() {
              element={<Admin user={user}/>} exact>
                </Route>
                <Route path='/blog' 
-             element={<Blog user={user}/>} exact>
-               </Route>
-               <Route path='/admin' 
-             element={<Admin user={user}/>} exact>
+             element={<Blog/>} exact>
                </Route>
           </Routes>
       </Container>
-      </main>
       </Router>
   );
 }
-
 export default App;

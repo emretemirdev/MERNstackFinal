@@ -22,7 +22,8 @@ function Admin(){
             title: input.title,
             content: input.content
         }
-        axios.post('http://localhost:5000/create', newNote)
+        axios.post('/create', newNote)
+        
     }
     return <div className="container">
         <h1>Blog Gönderi Oluşurma ve Database Gönderme</h1>  <br></br>

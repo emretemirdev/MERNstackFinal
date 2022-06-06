@@ -1,31 +1,26 @@
-import { json } from "express/lib/response"
-import React, {useEffect, useState} from "react"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 function Blog(){
-    const[notes, setNotes] = useState([{
-        title: '',
-        content: ''
-    }])
+  const [blog, setBlog] = useState([]);
+  const [isLoading, setisLoading] = useState(true);
 
-    useEffect(() =>
-        fetch("/blog").then(res => {
-            if(res.ok) {
-                return res.json()
-            }
-        }).then(jsonRes => setNotes(jsonRes))
-    )
-   /*return <div className="container">
-        <h1>Blog Görüntüleme Sayfası</h1>
-       {notes.map(note => 
-        <div>
-            <h1>{note.title}</h1>
-            <p>{note.content}</p>
-            </div>
-            )}
-         
-
-    
+  useEffect(()=>{
+    axios("https://jsonplaceholder.typicode.com/comments")
+    .then((res) => setBlog(res.data))
+    .catch((e) => console.log(e))
+    .finally (() => setisLoading(false))
+  }, []);  
+  return (
+    <div>Blog
+           <h5> {isLoading && <div>Yükleniyor...</div>}</h5>
+            {blog.map((blog)=>(
+            <div key={blog.id}> <h6>{blog.name}</h6></div>
+            ))}
     </div>
-    */
+    
+     
+  )
 }
-export default Blog;
+
+export default Blog

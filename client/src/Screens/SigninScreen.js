@@ -20,7 +20,7 @@ const AuthScreen = ({ setUser }) => {
                 .then((res) => {
                   localStorage.setItem("user", JSON.stringify(res.data.user));//tarayıcıda lokalde tutuluyor
                   setUser(res.data.user);
-                  navigate("/"); //yönlendirilen sayfa
+                  navigate("/blog"); //yönlendirilen sayfa
                 })
                 .catch((err) => {
                   console.log(err.response.data.message);

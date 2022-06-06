@@ -7,7 +7,7 @@ useEffect(()=> {
 if(localStorage.getItem('user') && !user){
     setUser(JSON.parse(localStorage.getItem('user'))); //satyfa yenilense dahil
 }
-}, [user] )
+},)
   return (
     <Navbar className='py-4' bg="dark" variant="dark" expand="lg">
   <Container fluid>
@@ -19,20 +19,21 @@ if(localStorage.getItem('user') && !user){
         style={{ maxHeight: '100px' }}
         navbarScroll
       >
-        <Nav.Link>Ana Sayfa</Nav.Link>
+        <Nav.Link path="/admin"> 
+          Ana Sayfa</Nav.Link>
         <NavDropdown className='text-white' title="Hakkımızda" id="navbarScrollingDropdown">
           <NavDropdown.Item>Neler Yapıyoruz</NavDropdown.Item>
           <NavDropdown.Item>Ekibimiz</NavDropdown.Item>
         </NavDropdown>
-        <Nav.Link>İletişim</Nav.Link>
-        <Nav.Link>Blog</Nav.Link>
+        <Nav.Link path="/blog" >İletişim</Nav.Link>
+        <Nav.Link path="/blog" >Blog</Nav.Link>
       </Nav>
     </Navbar.Collapse>
     {
       user ? <Button bg="dark" variant="light" 
       onClick={(e) => {
          localStorage.removeItem("user");
-        setUser(null)
+        setUser(null);
       }
       }> Çıkış Yap </Button>:
       <Button bg="dark" variant="light">
